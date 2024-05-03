@@ -1,0 +1,16 @@
+.kotak{
+    margin: auto;
+    height: 300px;
+    width: 450px;
+    background-color: gray;
+    box-shadow: 0px 0px 20px red;
+   
+
+}
+.M{
+    margin-left: 10PX;
+}
+
+h1{
+    margin-left: 40%;
+}
