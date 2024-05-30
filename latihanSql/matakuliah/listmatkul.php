@@ -6,13 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <h2>LIST MATAKULIAH</h2>
+    <a href="form.php">instert data</a>
+    <br>
     <table border="1">
     <tr>
         <th>no</th>
-        <th>nama</th>
-        <th>nim</th>
-        <th>alamat</th>
+        <th>kd matakuliah</th>
+        <th>nama matakuliah</th>
+        <th>jumlah sks</th>
+        <th>smester</th>
+        <th>matakuliah inti</th>
         <td>opsi</td>
     </tr>
     
@@ -34,7 +38,7 @@
     $no = ($halaman-1) * $batas + 1;
     //hitung total data
 
-    $query2 = mysqli_query($koneksi, "select * from mahasiswa");
+    $query2 = mysqli_query($koneksi, "select * from matakuliah");
     $jmldata =  mysqli_num_rows($query2);
     $jmlhalaman = ceil($jmldata/$batas);
 
@@ -42,7 +46,7 @@
 
     for ($i=1; $i <= $jmlhalaman ; $i++) 
         if ($i != $halaman) {
-            echo "<a href=\"listmahasiswa_page.php?halaman=$i\">$i</a> | ";
+            echo "<a href=\"listmatkul_page.php?halaman=$i\">$i</a> | ";
             // echo" <a href=\"listmahasiswa_page.php?halaman=$i\">$i</a> | ";
         } else {
            echo "<b>$i</b> | ";
@@ -51,7 +55,7 @@
     echo "<p>total anggota : <b>$jmldata</b> orang</p>";
 
     //sesuaikan query dengan posisi batas
-    $query = "select * from mahasiswa LIMIT $posisi,$batas";
+    $query = "select * from matakuliah LIMIT $posisi,$batas";
 
 
 
@@ -60,13 +64,17 @@
     while ($d = mysqli_fetch_array($data)) {
        ?>
        <tr>
-        <td><?php echo $no++;?></td>
-        <td><?php echo $d['nama'];?></td>
-        <td><?php echo $d['nim'];?></td>
-        <td><?php echo $d['alamat'];?></td>
+       <td><?php echo $no++; ?></td>
+                <td><?php echo $d['kodeMk']; ?></td>
+                <td><?php echo $d['namaMk']; ?></td>
+                <td><?php echo $d['jumlahSKS']; ?></td>
+                <td><?php echo $d['semester']; ?></td>
+                <td><?php echo $d['mkInti'] == 1 ? 'Ya' : 'Tidak'; ?></td>
+
         <td>
-            <a href="edit.php?id=<?php echo $d['id']; ?>">edit</a>
-            <a href="deletepros.php?id=<?php echo $d['id']; ?>">hapus</a>
+            <a href="edit.php?kodeMk=<?php echo $d['kodeMk']; ?>">edit</a>
+
+            <a href="hapus.php?kodeMk=<?php echo $d['kodeMk']; ?>">hapus</a>
         </td>
        </tr>
        <?php
