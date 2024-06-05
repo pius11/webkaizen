@@ -10,6 +10,7 @@
     <table border="1">
     <tr>
         <th>no</th>
+        <th>foto profile</th>
         <th>nama</th>
         <th>nim</th>
         <th>alamat</th>
@@ -61,6 +62,7 @@
        ?>
        <tr>
         <td><?php echo $no++;?></td>
+        <td><img src="images/<?php echo $d['foto'];?>" alt="fotoprofile" style="width: 100px; height: auto;" ></td>
         <td><?php echo $d['nama'];?></td>
         <td><?php echo $d['nim'];?></td>
         <td><?php echo $d['alamat'];?></td>

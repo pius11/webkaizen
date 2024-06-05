@@ -11,7 +11,7 @@
     <br>
     <br>
     <h3>TAMBAH DATA</h3>
-    <form action="tambah_aksi.php" method="post">
+    <form action="tambah_aksi.php" method="post" enctype="multipart/form-data">
         <table>
             <tr>
                 <td>nama</td>
@@ -25,7 +25,11 @@
                 <td>alamat</td>
                 <td><input type="text" name="alamat" ></td>
             </tr>
+            <tr>
+                <td>foto profile</td>
+                <td><input type="file" name="foto"  ></td>
             </tr>
+            
             <tr>
                 <td></td>
                 <td><input type="submit" ></td>

@@ -16,7 +16,7 @@
     while ($d = mysqli_fetch_array($data)) {
         ?>
 
-        <form action="update.php" method="post">
+        <form action="update.php" method="post" enctype="multipart/form-data">
 <table>
     <tr>
         <td>name</td>
@@ -33,6 +33,10 @@
     <tr>
         <td>alamat</td>
         <td><input type="text" name="alamat" value="<?php echo $d['alamat'];?>" ></td>
+    </tr>
+    <tr>
+        <td>foto profile </td>
+        <td><input type="file" name="foto" ></td>
     </tr>
     <tr>
         <td></td>
